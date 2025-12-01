@@ -1,0 +1,209 @@
+/* Color Palette for ShoreSquad */
+:root {
+    --primary-ocean: #0077B6;
+    --secondary-sand: #F4A261;
+    --accent-coral: #E76F51;
+    --light-foam: #E8F4F8;
+    --dark-wave: #023E8A;
+    --text-dark: #1a1a1a;
+    --text-light: #666;
+    --border-color: #ddd;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-dark);
+    background-color: #fafafa;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navbar */
+.navbar {
+    background: var(--primary-ocean);
+    color: white;
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    transition: opacity 0.3s;
+}
+
+.nav-links a:hover {
+    opacity: 0.8;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, var(--primary-ocean), var(--dark-wave));
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+}
+
+/* Buttons */
+.btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.btn-primary {
+    background-color: var(--secondary-sand);
+    color: var(--text-dark);
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-coral);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(231, 111, 81, 0.3);
+}
+
+/* Sections */
+section {
+    padding: 3rem 2rem;
+    background: white;
+    margin: 2rem 0;
+    border-radius: 8px;
+}
+
+section h3 {
+    color: var(--primary-ocean);
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+}
+
+/* Map Container */
+.map-container {
+    width: 100%;
+    height: 400px;
+    background: var(--light-foam);
+    border-radius: 8px;
+    border: 2px solid var(--primary-ocean);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-light);
+}
+
+/* Weather Container */
+.weather-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.weather-card {
+    background: linear-gradient(135deg, var(--light-foam), white);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--secondary-sand);
+    text-align: center;
+}
+
+.weather-card h4 {
+    color: var(--primary-ocean);
+    margin-bottom: 0.5rem;
+}
+
+/* Crew Container */
+.crew-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1.5rem;
+}
+
+.crew-member {
+    background: var(--light-foam);
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.crew-member:hover {
+    transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+    background: var(--dark-wave);
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 3rem;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero h2 {
+        font-size: 1.8rem;
+    }
+
+    .nav-links {
+        gap: 1rem;
+        font-size: 0.9rem;
+    }
+
+    .map-container {
+        height: 300px;
+    }
+}
