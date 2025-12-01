@@ -16,13 +16,10 @@ function initApp() {
  */
 function loadMapData() {
     const mapContainer = document.getElementById('map-container');
-    mapContainer.innerHTML = '<p>📍 Interactive map loading...</p>';
-    // TODO: Integrate real map library (Leaflet, Mapbox, etc.)
+    // The iframe is already in index.html, but we can show a message if needed
+    mapContainer.innerHTML = mapContainer.innerHTML || '<p>📍 Interactive map loading...</p>';
 }
 
-/**
- * Load and display weather data
- */
 /**
  * Load and display weather data from NEA API
  */
@@ -35,25 +32,24 @@ function loadWeatherData() {
         .then(data => {
             weatherContainer.innerHTML = ''; // clear loading text
 
-            // Example: parse NEA API data
-            const forecasts = data.items[0].periods; // adjust based on API structure
-            forecasts.forEach(forecast => {
+            // NEA API structure: data.items[0].periods[0].regions
+            const regions = data.items[0].periods[0].regions;
+
+            for (const [region, temp] of Object.entries(regions)) {
                 const card = document.createElement('div');
                 card.className = 'weather-card';
                 card.innerHTML = `
-                    <h4>${forecast.time}</h4>
-                    <p>${forecast.type} ☀️</p>
-                    <p><strong>${forecast.temperature}°C</strong></p>
+                    <h4>${region}</h4>
+                    <p>🌤️ Temperature: <strong>${temp}°C</strong></p>
                 `;
                 weatherContainer.appendChild(card);
-            });
+            }
         })
         .catch(err => {
             weatherContainer.innerHTML = '<p>⚠️ Failed to load weather data.</p>';
             console.error("Weather API error:", err);
         });
 }
-
 
 /**
  * Load and display crew members
